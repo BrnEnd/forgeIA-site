@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Briefing — ForgeIA Studio</title>
+    <meta name="description" content="Envie seu briefing em poucos passos e receba um orçamento detalhado." />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/">ForgeIA Studio</a>
+      <nav>
+        <a href="/servicos.html">Serviços</a>
+        <a href="/briefing.html">Briefing</a>
+        <a href="/contato.html">Contato</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <h1>Construamos o briefing ideal</h1>
+        <p>Conte os objetivos, prioridades e restrições para iniciarmos com precisão cirúrgica.</p>
+      </section>
+
+      <section class="section" data-wizard>
+        <div class="wizard">
+          <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" data-progress aria-valuenow="0"></div>
+          </div>
+          <p><strong>Etapa <span data-progress-label>1 de 5</span></strong></p>
+          <div class="message" data-message hidden></div>
+          <form data-form>
+            <div class="step" data-step>
+              <h2>1. Serviços e metas</h2>
+              <div class="grid grid-3">
+                <label class="card">
+                  <input type="checkbox" name="services" value="web" data-multi />
+                  <strong>Sistemas Web</strong>
+                  <span>Plataformas e produtos digitais complexos.</span>
+                </label>
+                <label class="card">
+                  <input type="checkbox" name="services" value="mobile" data-multi />
+                  <strong>Aplicativos Mobile</strong>
+                  <span>Experiências nativas e híbridas.</span>
+                </label>
+                <label class="card">
+                  <input type="checkbox" name="services" value="ia" data-multi />
+                  <strong>Agentes de IA</strong>
+                  <span>Automação cognitiva e copilotos.</span>
+                </label>
+                <label class="card">
+                  <input type="checkbox" name="services" value="automacao" data-multi />
+                  <strong>Automação</strong>
+                  <span>RPA e integrações entre sistemas.</span>
+                </label>
+                <label class="card">
+                  <input type="checkbox" name="services" value="landing" data-multi />
+                  <strong>Landing Pages</strong>
+                  <span>Conversão acelerada para campanhas.</span>
+                </label>
+              </div>
+              <div class="field">
+                <label for="goals">Objetivo do negócio</label>
+                <textarea id="goals" name="goals" rows="4" placeholder="Onde você quer chegar com este projeto?"></textarea>
+                <small data-error="goals"></small>
+              </div>
+              <small data-error="services"></small>
+            </div>
+
+            <div class="step" data-step>
+              <h2>2. Escopo e funcionalidades</h2>
+              <div class="grid grid-3">
+                <label class="card">
+                  <input type="checkbox" name="features" value="autenticacao" data-multi />
+                  <strong>Autenticação</strong>
+                  <span>Login, 2FA, níveis de acesso.</span>
+                </label>
+                <label class="card">
+                  <input type="checkbox" name="features" value="painel-admin" data-multi />
+                  <strong>Painel Admin</strong>
+                  <span>Gestão de dados e usuários.</span>
+                </label>
+                <label class="card">
+                  <input type="checkbox" name="features" value="integracao-api" data-multi />
+                  <strong>Integrações</strong>
+                  <span>Conexão com APIs e ERPs.</span>
+                </label>
+                <label class="card">
+                  <input type="checkbox" name="features" value="pagamentos" data-multi />
+                  <strong>Pagamentos</strong>
+                  <span>Checkout, assinaturas e billing.</span>
+                </label>
+                <label class="card">
+                  <input type="checkbox" name="features" value="chatbot" data-multi />
+                  <strong>Chatbot</strong>
+                  <span>Assistentes inteligentes.</span>
+                </label>
+                <label class="card">
+                  <input type="checkbox" name="features" value="analytics" data-multi />
+                  <strong>Analytics</strong>
+                  <span>Métricas em tempo real.</span>
+                </label>
+                <label class="card">
+                  <input type="checkbox" name="features" value="automacoes" data-multi />
+                  <strong>Automação</strong>
+                  <span>Workflows e triggers.</span>
+                </label>
+              </div>
+              <small data-error="features"></small>
+              <div class="field">
+                <label for="scope_notes">Alguma observação adicional?</label>
+                <textarea id="scope_notes" name="scope_notes" rows="4" placeholder="Integrações específicas, legado, restrições..."></textarea>
+              </div>
+            </div>
+
+            <div class="step" data-step>
+              <h2>3. Prazos e investimentos</h2>
+              <div class="field">
+                <label for="timeline">Quando deseja lançar?</label>
+                <select id="timeline" name="timeline">
+                  <option value="">Selecione</option>
+                  <option value="30">Até 30 dias</option>
+                  <option value="60">Até 60 dias</option>
+                  <option value="90">Até 90 dias</option>
+                  <option value="120">120 dias ou mais</option>
+                </select>
+                <small data-error="timeline"></small>
+              </div>
+              <div class="field">
+                <label for="budget_range">Faixa de investimento</label>
+                <select id="budget_range" name="budget_range">
+                  <option value="">Selecione</option>
+                  <option value="10-30">R$ 10k - 30k</option>
+                  <option value="30-60">R$ 30k - 60k</option>
+                  <option value="60-120">R$ 60k - 120k</option>
+                  <option value="120+">Acima de R$ 120k</option>
+                </select>
+                <small data-error="budget_range"></small>
+              </div>
+            </div>
+
+            <div class="step" data-step>
+              <h2>4. Dados do cliente</h2>
+              <div class="field">
+                <label for="name">Nome completo</label>
+                <input id="name" name="name" type="text" autocomplete="name" />
+                <small data-error="name"></small>
+              </div>
+              <div class="field">
+                <label for="company">Empresa</label>
+                <input id="company" name="company" type="text" autocomplete="organization" />
+              </div>
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" autocomplete="email" />
+                <small data-error="email"></small>
+              </div>
+              <div class="field">
+                <label for="phone">Telefone / WhatsApp</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" />
+                <small data-error="phone"></small>
+              </div>
+              <div class="field">
+                <label for="location">Cidade / Estado</label>
+                <input id="location" name="location" type="text" autocomplete="address-level2" />
+                <small data-error="location"></small>
+              </div>
+            </div>
+
+            <div class="step" data-step>
+              <h2>5. Confirmação</h2>
+              <p>Revise os dados e aceite o contato para receber o orçamento personalizado.</p>
+              <label class="card">
+                <input type="checkbox" name="consent" />
+                <span>Autorizo a ForgeIA Studio a entrar em contato e tratar meus dados conforme a LGPD.</span>
+              </label>
+              <small data-error="consent"></small>
+              <div class="summary" data-summary></div>
+            </div>
+
+            <div class="actions">
+              <button class="button" data-action="back">Voltar</button>
+              <div>
+                <button class="button button-primary" data-action="next">Próximo</button>
+                <button class="button button-primary" data-action="submit" hidden>Enviar briefing</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="success" data-success data-whatsapp="__WHATSAPP_NUMBER__">
+        <h2>Briefing enviado com sucesso! 🎉</h2>
+        <p>Recebemos suas informações. Nossa equipe retornará em até 24h úteis.</p>
+        <div class="success-actions">
+          <a class="button button-primary" data-action="whatsapp" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <a class="button" data-action="pdf">Baixar briefing (PDF)</a>
+        </div>
+        <div class="summary" data-summary></div>
+      </section>
+    </main>
+    <footer>
+      <div>© 2025 ForgeIA Studio</div>
+      <small>Inteligência aplicada ao negócio digital.</small>
+    </footer>
+    <script type="module" src="/assets/briefing.js"></script>
+  </body>
+</html>
