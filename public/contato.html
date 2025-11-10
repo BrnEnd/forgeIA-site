@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contato — ForgeIA Studio</title>
+    <meta name="description" content="Fale com a ForgeIA Studio e acelere sua próxima iniciativa digital." />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/">ForgeIA Studio</a>
+      <nav>
+        <a href="/servicos.html">Serviços</a>
+        <a href="/briefing.html">Briefing</a>
+        <a href="/contato.html">Contato</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <h1>Vamos conversar sobre o futuro do seu produto</h1>
+        <p>Conte sua necessidade e retornaremos com insights e próximos passos.</p>
+      </section>
+
+      <section class="section">
+        <div class="contact-card">
+          <form data-contact>
+            <div class="field">
+              <label for="contact-name">Nome</label>
+              <input id="contact-name" name="name" type="text" required />
+            </div>
+            <div class="field">
+              <label for="contact-email">E-mail</label>
+              <input id="contact-email" name="email" type="email" required />
+            </div>
+            <div class="field">
+              <label for="contact-message">Mensagem</label>
+              <textarea id="contact-message" name="message" rows="4" required></textarea>
+            </div>
+            <div class="message" data-contact-message hidden></div>
+            <button class="button button-primary" type="submit">Enviar mensagem</button>
+          </form>
+          <div class="success-actions" style="margin-top:24px;">
+            <a class="button" href="https://wa.me/__WHATSAPP_NUMBER__" target="_blank" rel="noopener">WhatsApp imediato</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div>© 2025 ForgeIA Studio</div>
+      <small>Inteligência aplicada ao negócio digital.</small>
+    </footer>
+    <script type="module" src="/assets/contact.js"></script>
+  </body>
+</html>

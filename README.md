@@ -1,55 +1,74 @@
-# ForgeIA Studio
+# ForgeIA Studio — Site estático com wizard de briefing
 
-Projeto Next.js 15 (App Router) com TypeScript, Tailwind CSS e UI baseada em shadcn/ui para a ForgeIA Studio.
+Este projeto fornece uma versão lightweight do site da ForgeIA Studio com um fluxo de briefing multi-etapas, API em Node.js puro e fallback de armazenamento em arquivos JSON. Ele foi desenhado para funcionar em ambientes restritos (sem acesso externo ao npm registry), portanto não possui dependências externas.
 
 ## Requisitos
 
-- Node.js 18+
-- npm
-- Banco Postgres (opcional, fallback salva em `storage/leads.json`)
+- Node.js 22+
+- Ambiente com permissões de escrita no diretório `storage/`
 
-## Scripts
+## Instalação
 
 ```bash
 npm install
+```
+
+> Não há dependências externas, portanto o comando apenas prepara os scripts.
+
+## Executando em modo desenvolvimento
+
+```bash
 npm run dev
+```
+
+O comando executa o build e inicia um servidor HTTP em `http://localhost:3000` com watch automático para arquivos em `src/` e `public/`.
+
+## Build de produção
+
+```bash
 npm run build
+```
+
+Os arquivos compilados ficam em `dist/`. Para iniciar o servidor usando os artefatos de produção execute:
+
+```bash
 npm run start
-npm run lint
-npm run typecheck
-npm run test
-npm run test:e2e
-npm run db:push
-npm run db:migrate
-npm run db:studio
+```
+
+## Testes
+
+O projeto utiliza o runner nativo do Node (`node --test`).
+
+```bash
+npm test
+```
+
+## Estrutura principal
+
+```
+├── public/          # HTML e CSS estáticos
+├── src/
+│   ├── client/      # Scripts do front-end (TypeScript sem dependências)
+│   └── server/      # Servidor HTTP, validações e geração de PDF
+├── storage/         # Base de dados simples em JSON
+└── scripts/         # Utilitários de build e dev
 ```
 
 ## Variáveis de ambiente
 
-Copie `.env.example` para `.env` e ajuste:
+- `PORT`: porta utilizada pelo servidor HTTP (padrão: `3000`).
+- `WHATSAPP_NUMBER`: número (somente dígitos) usado nos CTAs de WhatsApp. Caso não informado, será exibido um placeholder.
 
-- `DATABASE_URL`
-- `RESEND_API_KEY`
-- `WHATSAPP_NUMBER`
-- `LEAD_PDF_SECRET`
+## Endpoints
 
-## Fluxo de desenvolvimento
+- `POST /api/lead`: recebe o payload do briefing e persiste em `storage/leads.json`.
+- `GET /api/lead/:id/pdf`: gera um PDF simples com as informações do lead.
+- `POST /api/contact`: registra a mensagem em `storage/contacts.json`.
 
-1. `npm install`
-2. `npm run dev`
-3. Acesse `http://localhost:3000`
-4. Execute testes unitários `npm run test`
-5. Execute e2e com `npm run test:e2e` (necessário servidor rodando)
+## Limitações conhecidas
 
-## PDF & Persistência
+- PDFs gerados possuem layout simples (texto linear).
+- Não há integração com banco de dados ou provedores externos.
+- Sem bibliotecas de UI/React; o front-end utiliza JavaScript/TypeScript puro.
 
-- Quando `DATABASE_URL` não está definido, os leads são salvos em `storage/leads.json`.
-- PDFs são gerados via `@react-pdf/renderer` em `/api/lead/[id]/pdf?nonce=...`.
-
-## Husky
-
-Após instalar dependências, rode `npm run prepare` para habilitar hooks de commit com lint e typecheck.
-
-## Deploy
-
-O projeto inclui `vercel.json` e está pronto para deploy na Vercel. Ajuste as variáveis de ambiente via painel.
+Mesmo sem dependências, o projeto mantém o fluxo de briefing completo com validações por etapa, persistência em sessionStorage e tela de sucesso com resumo e links úteis.

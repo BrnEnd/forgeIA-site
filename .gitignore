@@ -1,7 +1,4 @@
-node_modules
-.next
-out
+node_modules/
+dist/
 .env
-storage/leads.json
-coverage
-playwright-report
+storage/*.log
