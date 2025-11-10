@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background-color: #0A0F1F;
+}
+
+body {
+  @apply bg-brand-900 text-brand-100 font-sans;
+}
+
+a {
+  @apply text-brand-500 underline-offset-4 hover:underline;
+}
+
+.btn-focus {
+  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-500;
+}
+
+.glow-border {
+  position: relative;
+  z-index: 0;
+}
+
+.glow-border::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(0, 194, 255, 0.4), rgba(142, 162, 198, 0.2));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.glow-border:hover::after,
+.glow-border:focus-visible::after {
+  opacity: 1;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 194, 255, 0.6);
+  border-radius: 9999px;
+}
